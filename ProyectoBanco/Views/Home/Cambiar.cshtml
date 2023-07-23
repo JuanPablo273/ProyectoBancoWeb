@@ -1,0 +1,42 @@
+﻿@model ProyectoBanco.Entities.UsuarioEnt
+
+
+@{
+    ViewBag.Title = "Cambiar";
+    Layout = "~/Views/Shared/_Layout - Cambiar.cshtml";
+}
+
+
+@using (Html.BeginForm("CambiarClave", "Home", FormMethod.Post))
+{
+    <div class="row align-items-center justify-content-center">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-5">
+            <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+
+                @if (ViewBag.MsjPantalla != null)
+                {
+                    <div style="text-align:center" class="alert alert-warning" role="alert">
+                        @ViewBag.MsjPantalla
+                    </div>
+                }
+
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Contrasenna, new { @type = "password", @class = "form-control" })
+                    <label for="floatingInput">Contraseña Actual</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.ContrasennaNueva, new { @type = "password", @class = "form-control" })
+                    <label for="floatingInput">Contraseña Nueva</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.ConfirmarContrasennaNueva, new { @type = "password", @class = "form-control" })
+                    <label for="floatingInput">Confirme su Contraseña Nueva</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Cambiar Contraseña</button>
+            </div>
+        </div>
+    </div>
+}

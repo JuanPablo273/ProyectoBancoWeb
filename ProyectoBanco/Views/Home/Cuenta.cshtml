@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ProyectoBanco.Entities.UsuarioEnt>
+
+@{
+    ViewBag.Title = "Cuenta";
+    Layout = "~/Views/Shared/_Layout - Cuenta.cshtml";
+}
+
+
+<div class="row align-items-center justify-content-center">
+    <div style="margin-top:100px" class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-5">
+        <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+
+            <div class="form-floating mb-3">
+                <h6 class="mb-0"> @Session["NombreUsuario"].ToString() </h6>
+                <label for="floatingInput">Nombre</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <h6 class="mb-0"> @Session["ApellidoUsuario"].ToString() </h6>
+                <label for="floatingInput">Contraseña Nueva</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <h6 class="mb-0"> @Session["Correo"].ToString() </h6>
+                <label for="floatingInput">Confirme su Contraseña Nueva</label>
+            </div>
+            <div class="form-floating mb-3">
+                <h6 class="mb-0"> @Session["Direccion"].ToString() </h6>
+                <label for="floatingInput">Confirme su Contraseña Nueva</label>
+            </div>
+            <div class="form-floating mb-3">
+                <h6 class="mb-0"> @Session["Telefono"].ToString() </h6>
+                <label for="floatingInput">Confirme su Contraseña Nueva</label>
+            </div>
+
+
+           
+                    <a href="@Url.Action("Editar", "Usuario")">Editar</a>
+               
+                    <a href="@Url.Action("Cambiar", "Home")"><i class="fa fa-pen"></i></a>
+                
+            
+        </div>
+    </div>
+</div>
+
+}

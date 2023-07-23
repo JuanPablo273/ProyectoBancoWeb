@@ -1,0 +1,54 @@
+﻿@model ProyectoBanco.Entities.UsuarioEnt
+
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layout - Login.cshtml";
+}
+
+@using (Html.BeginForm("RegistrarUsuario", "Home", FormMethod.Post))
+{
+    <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+            <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <a href="index.html" class="">
+                        <h3 class="text-primary"><i class="fa fa-laptop me-2"></i>WEB LN</h3>
+                    </a>
+                </div>
+                @if (ViewBag.MsjPantalla != null)
+                {
+                    <div class="alert alert-warning" role="alert">
+                        @ViewBag.MsjPantalla
+                    </div>
+                }
+
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Nombre, new { @type = "text", @class = "form-control", placeholder = "Nombre" })
+                    <label for="floatingInput">Nombre</label>
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Apellido, new { @type = "text", @class = "form-control", placeholder = "Apellido" })
+                    <label for="floatingInput">Apellido</label>
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.TextBoxFor(m => m.Correo, new { @type = "email", @class = "form-control", @placeholder = "correo@correo.com" })
+                    <label for="floatingInput">Correo Electrónico</label>
+                </div>
+                <div class="form-floating mb-4">
+                    @Html.TextBoxFor(m => m.Contrasenna, new { @type = "password", @class = "form-control", placeholder = "Contraseña" })
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+                <div class="form-floating mb-4">
+                    @Html.TextBoxFor(m => m.Direccion, new { @type = "text", @class = "form-control", placeholder = "Direccion" })
+                    <label for="floatingPassword">Direccion</label>
+                </div>
+                <div class="form-floating mb-4">
+                    @Html.TextBoxFor(m => m.Telefono, new { @type = "tel", @class = "form-control", placeholder = "telefono" })
+                    <label for="floatingPassword">telefono</label>
+                </div>
+                <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Registrarse</button>
+                <p class="text-center mb-0">Si ya tiene una cuenta <a href="@Url.Action("Login","Home")">Inicie Sesión</a></p>
+            </div>
+        </div>
+    </div>
+}
