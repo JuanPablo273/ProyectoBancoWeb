@@ -151,6 +151,26 @@ namespace ProyectoBanco.Models
             }
         }
 
+        public int CambiarDatos(UsuarioEnt entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/CambiarDatos";
+                JsonContent body = JsonContent.Create(entidad); //Serializar
+                HttpResponseMessage resp = client.PutAsync(url, body).Result;
+
+                if (resp.IsSuccessStatusCode)
+                {
+                    return resp.Content.ReadFromJsonAsync<int>().Result;
+                }
+
+                return 0;
+            }
+        }
+
+
+
+
     }
 
 }

@@ -11,31 +11,31 @@
         <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
 
             <div class="form-floating mb-3">
+                <label for="floatingInput">Nombre:</label>
                 <h6 class="mb-0"> @Session["NombreUsuario"].ToString() </h6>
-                <label for="floatingInput">Nombre</label>
             </div>
 
             <div class="form-floating mb-3">
+                <label for="floatingInput">Apellido:</label>
                 <h6 class="mb-0"> @Session["ApellidoUsuario"].ToString() </h6>
-                <label for="floatingInput">Contraseña Nueva</label>
             </div>
 
             <div class="form-floating mb-3">
+                <label for="floatingInput">Correo:</label>
                 <h6 class="mb-0"> @Session["Correo"].ToString() </h6>
-                <label for="floatingInput">Confirme su Contraseña Nueva</label>
             </div>
             <div class="form-floating mb-3">
+                <label for="floatingInput">Direccion:</label>
                 <h6 class="mb-0"> @Session["Direccion"].ToString() </h6>
-                <label for="floatingInput">Confirme su Contraseña Nueva</label>
             </div>
             <div class="form-floating mb-3">
+                <label for="floatingInput">Telefono:</label>
                 <h6 class="mb-0"> @Session["Telefono"].ToString() </h6>
-                <label for="floatingInput">Confirme su Contraseña Nueva</label>
             </div>
 
-
+            <br/><br /><br />
            
-                    <a href="@Url.Action("Editar", "Usuario")">Editar</a>
+                    <a href="@Url.Action("Editar", "Usuario")">Editar Datos</a>
                
                     <a href="@Url.Action("Cambiar", "Home")"><i class="fa fa-pen"></i></a>
                 

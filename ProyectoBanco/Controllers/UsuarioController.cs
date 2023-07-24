@@ -52,8 +52,44 @@ namespace ProyectoBanco.Controllers
             return View(resp);
         }
 
+        [HttpPost]
+        public ActionResult EditarUsuario(UsuarioEnt entidad)
+        {
+            entidad.IdUsuario = long.Parse(Session["IdUsuario"].ToString());
+            entidad.Nombre = Session["NombreUsuario"].ToString();
+            entidad.Apellido = Session["ApellidoUsuario"].ToString();
+            entidad.Correo = Session["Correo"].ToString();
+            entidad.Direccion = Session["Direccion"].ToString();
+            entidad.Telefono = Session["Telefono"].ToString();
 
 
+            var datos = model.IniciarSesion(entidad);
+
+            if (datos == null)
+            {
+                ViewBag.MsjPantalla = "Ingrese Datos";
+                return View("Cambiar");
+            }
+
+         
+
+            var datosnuevo = model.CambiarDatos(entidad);
+
+            if (datosnuevo > 0)
+                return RedirectToAction("Inicio", "Home");
+            else
+            {
+                ViewBag.MsjPantalla = "No se ha podido cambiar sus datos";
+                return View("Cambiar");
+            }
+
+        }
 
     }
+
 }
+
+
+
+
+    
