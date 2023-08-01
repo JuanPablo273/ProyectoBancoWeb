@@ -1,0 +1,51 @@
+﻿@model ProyectoBanco.Entities.UsuarioEnt
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout - Cuenta.cshtml";
+}
+
+            <br>
+            <h5>Datos Usuario</h5>.
+            <br>
+
+            @using (Html.BeginForm("EditarUsuario", "Usuario", FormMethod.Post))
+            {
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-5">
+                        <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+
+                            @if (ViewBag.MsjPantalla != null)
+                            {
+                                <div style="text-align:center" class="alert alert-warning" role="alert">
+                                    @ViewBag.MsjPantalla
+                                </div>
+                            }
+
+                            <div class="form-floating mb-3">
+                                @Html.TextBoxFor(m => m.Nombre, new { @type = "text", @class = "form-control", placeholder = "Nombre" })
+                                <label for="floatingInput">Nombre</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                @Html.TextBoxFor(m => m.Apellido, new { @type = "text", @class = "form-control", @placeholder = "apelldio" })
+                                <label for="floatingInput">Apellido</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                @Html.TextBoxFor(m => m.Correo, new { @type = "email", @class = "form-control", @placeholder = "correo@correo.com" })
+                                <label for="floatingInput">Correo Electrónico</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                @Html.TextBoxFor(m => m.Direccion, new { @type = "text", @class = "form-control", @placeholder = "Direccion" })
+                                <label for="floatingInput">Direccion</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                @Html.TextBoxFor(m => m.Telefono, new { @type = "tel", @class = "form-control", @placeholder = "Telefono" })
+                                <label for="floatingInput">Telefono</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Actualizar Datos</button>
+                        </div>
+                    </div>
+                </div>
+            }
+

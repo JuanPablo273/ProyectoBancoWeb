@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ProyectoBanco.Entities.UsuarioEnt>
+
+@{
+    ViewBag.Title = "ConsultaUsuarios";
+}
+
+<h2>ConsultaUsuarios</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdUsuario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contrasenna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContrasennaNueva)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfirmarContrasennaNueva)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdUsuario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contrasenna)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContrasennaNueva)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfirmarContrasennaNueva)
+        </td>
+        <td>
+            <a href="@Url.Action("Cambiar", "Home", new { q = item.IdUsuario })"><i class="fa fa-pen"></i></a>
+        </td>
+    </tr>
+}
+
+</table>
