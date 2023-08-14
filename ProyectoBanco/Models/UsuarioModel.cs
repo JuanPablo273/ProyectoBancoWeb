@@ -165,12 +165,33 @@ namespace ProyectoBanco.Models
                 }
 
                 return 0;
+
+
+            }
+        }
+
+                public int EditarUsuario(UsuarioEnt entidad)
+                {
+                    using (var client = new HttpClient())
+                    {
+                        string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/EditarUsuario";
+                        JsonContent body = JsonContent.Create(entidad); //Serializar
+                        HttpResponseMessage resp = client.PutAsync(url, body).Result;
+
+                        if (resp.IsSuccessStatusCode)
+                        {
+                            return resp.Content.ReadFromJsonAsync<int>().Result;
+                        }
+
+                        return 0;
+                    }
+                }
+
+
+
             }
         }
 
 
 
 
-    }
-
-}

@@ -55,38 +55,40 @@ namespace ProyectoBanco.Controllers
         [HttpPost]
         public ActionResult EditarUsuario(UsuarioEnt entidad)
         {
-            entidad.IdUsuario = long.Parse(Session["IdUsuario"].ToString());
-            entidad.Nombre = Session["NombreUsuario"].ToString();
-            entidad.Apellido = Session["ApellidoUsuario"].ToString();
-            entidad.Correo = Session["Correo"].ToString();
-            entidad.Direccion = Session["Direccion"].ToString();
-            entidad.Telefono = Session["Telefono"].ToString();
 
 
-            var datos = model.IniciarSesion(entidad);
+            var resp = model.EditarUsuario(entidad);
 
-            if (datos == null)
-            {
-                ViewBag.MsjPantalla = "Ingrese Datos";
-                return View("Cambiar");
-            }
-
-         
-
-            var datosnuevo = model.CambiarDatos(entidad);
-
-            if (datosnuevo > 0)
-                return RedirectToAction("Inicio", "Home");
+            if (resp > 0)
+                return RedirectToAction("ConsultaUsuarios", "Usuario");
             else
             {
-                ViewBag.MsjPantalla = "No se ha podido cambiar sus datos";
-                return View("Cambiar");
+                ViewBag.MsjPantalla = "No se ha podido actualizar la información del usuario";
+                return View("ConsultaUsuarios");
+
+
+
+                //if (datos == null)
+                //{
+                //    ViewBag.MsjPantalla = "Ingrese Datos";
+                //    return View("Editar");
+                //}
+
+                //var datosnuevo = model.CambiarDatos(entidad);
+
+                //if (datosnuevo > 0)
+                //    return RedirectToAction("Inicio", "Home");
+                //else
+                //{
+                //    ViewBag.MsjPantalla = "No se ha podido cambiar sus datos";
+                //    return View("Cambiar");
+                //}
+
             }
 
         }
 
     }
-
 }
 
 
