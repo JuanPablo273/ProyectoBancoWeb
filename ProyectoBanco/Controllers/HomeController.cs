@@ -36,6 +36,7 @@ namespace ProyectoBanco.Controllers
                 Session["Direccion"] = resp.Direccion;
                 Session["Telefono"] = resp.Telefono;
                 Session["RolUsuario"] = resp.IdRole;
+                Session["Token"] = resp.Token;
                 return RedirectToAction("Inicio", "Home");
             }
             else

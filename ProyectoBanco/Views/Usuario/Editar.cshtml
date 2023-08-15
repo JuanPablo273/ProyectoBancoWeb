@@ -22,6 +22,8 @@
                                 </div>
                             }
 
+                            @Html.HiddenFor(m => m.IdUsuario)
+
                             <div class="form-floating mb-3">
                                 @Html.TextBoxFor(m => m.Nombre, new { @type = "text", @class = "form-control", placeholder = "Nombre" })
                                 <label for="floatingInput">Nombre</label>

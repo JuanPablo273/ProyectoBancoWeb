@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Web;
 using System.Web.Mvc;
@@ -36,6 +37,9 @@ namespace ProyectoBanco.Models
         {
             using (var client = new HttpClient())
             {
+
+
+
                 string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/RegistrarUsuario";
                 JsonContent body = JsonContent.Create(entidad); //Serializar
                 HttpResponseMessage resp = client.PostAsync(url, body).Result;
@@ -70,8 +74,14 @@ namespace ProyectoBanco.Models
         {
             using (var client = new HttpClient())
             {
+
+
+
+                string token = HttpContext.Current.Session["Token"].ToString();
                 string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/CambiarClave";
                 JsonContent body = JsonContent.Create(entidad); //Serializar
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage resp = client.PutAsync(url, body).Result;
 
                 if (resp.IsSuccessStatusCode)
@@ -88,7 +98,12 @@ namespace ProyectoBanco.Models
         {
             using (var client = new HttpClient())
             {
+
+
+                string token = HttpContext.Current.Session["Token"].ToString();
                 string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/ConsultaUsuarios";
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage resp = client.GetAsync(url).Result;
 
                 if (resp.IsSuccessStatusCode)
@@ -123,7 +138,12 @@ namespace ProyectoBanco.Models
         {
             using (var client = new HttpClient())
             {
+
+
+                string token = HttpContext.Current.Session["Token"].ToString();
                 string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/ConsultaUsuario?q=" + q;
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage resp = client.GetAsync(url).Result;
 
                 if (resp.IsSuccessStatusCode)
@@ -139,7 +159,11 @@ namespace ProyectoBanco.Models
         {
             using (var client = new HttpClient())
             {
+
+                string token = HttpContext.Current.Session["Token"].ToString();
                 string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/ConsultaRoles";
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage resp = client.GetAsync(url).Result;
 
                 if (resp.IsSuccessStatusCode)
@@ -155,8 +179,12 @@ namespace ProyectoBanco.Models
         {
             using (var client = new HttpClient())
             {
+
+                string token = HttpContext.Current.Session["Token"].ToString();
                 string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/CambiarDatos";
                 JsonContent body = JsonContent.Create(entidad); //Serializar
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 HttpResponseMessage resp = client.PutAsync(url, body).Result;
 
                 if (resp.IsSuccessStatusCode)
@@ -174,8 +202,12 @@ namespace ProyectoBanco.Models
                 {
                     using (var client = new HttpClient())
                     {
+
+                        string token = HttpContext.Current.Session["Token"].ToString();
                         string url = ConfigurationManager.AppSettings["urlApi"].ToString() + "api/EditarUsuario";
                         JsonContent body = JsonContent.Create(entidad); //Serializar
+
+                        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                         HttpResponseMessage resp = client.PutAsync(url, body).Result;
 
                         if (resp.IsSuccessStatusCode)

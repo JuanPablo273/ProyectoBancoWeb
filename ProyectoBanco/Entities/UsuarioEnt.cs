@@ -25,5 +25,7 @@
         public bool Estado { get; set; }
 
         public string ConfirmarContrasennaNueva { get; set; }
+
+        public string Token { get; set; }
     }
 }
