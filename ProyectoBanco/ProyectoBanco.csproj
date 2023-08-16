@@ -296,6 +296,7 @@
     <Content Include="WebStyles\fonts\icomoon\style.css" />
     <Content Include="WebStyles\images\about_2.jpg" />
     <Content Include="WebStyles\images\alexander-mils-1469813-unsplash.jpg" />
+    <Content Include="WebStyles\images\bg.jpg" />
     <Content Include="WebStyles\images\flaticon-svg\backup.txt" />
     <Content Include="WebStyles\images\flaticon-svg\svg\001-wallet.svg" />
     <Content Include="WebStyles\images\flaticon-svg\svg\002-rich.svg" />

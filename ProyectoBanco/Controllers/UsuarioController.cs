@@ -16,7 +16,7 @@ namespace ProyectoBanco.Controllers
         public ActionResult ConsultaUsuarios()
         {
             var resp = model.ConsultaUsuarios();
-            return View(resp);
+            return View();
         }
 
         //[HttpGet]

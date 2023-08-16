@@ -6,42 +6,46 @@
 }
 
 
-<div class="row align-items-center justify-content-center">
-    <div style="margin-top:100px" class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-5">
-        <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
+<br>
+<br><br><br><br><br><br><br><br><br>
+<br>
 
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Nombre:</label>
-                <h6 class="mb-0"> @Session["NombreUsuario"].ToString() </h6>
-            </div>
+<div class="row">
+    <div class="col-12">
 
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Apellido:</label>
-                <h6 class="mb-0"> @Session["ApellidoUsuario"].ToString() </h6>
+        @if (ViewBag.MsjPantalla != null)
+        {
+            <div style="text-align:center" class="alert alert-warning" role="alert">
+                @ViewBag.MsjPantalla
             </div>
+        }
 
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Correo:</label>
-                <h6 class="mb-0"> @Session["Correo"].ToString() </h6>
-            </div>
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Direccion:</label>
-                <h6 class="mb-0"> @Session["Direccion"].ToString() </h6>
-            </div>
-            <div class="form-floating mb-3">
-                <label for="floatingInput">Telefono:</label>
-                <h6 class="mb-0"> @Session["Telefono"].ToString() </h6>
-            </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>NombreUsuario</th>
+                    <th>ApellidoUsuario</th>
+                    <th>Correo</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Editar</th>
+                </tr>
+            <thead>
+            <tbody>
+                    <tr>
+                        <td>@Session["NombreUsuario"].ToString()</td>
+                        <td>@Session["ApellidoUsuario"].ToString()</td>
+                        <td> @Session["Correo"].ToString()</td>
+                        <td>@Session["Direccion"].ToString()</td>
+                        <td> @Session["Telefono"].ToString()</td>
 
-            <br/><br /><br />
-           
-                    <a href="@Url.Action("Editar", "Usuario")">Editar Datos</a>
-               
-                    <a href="@Url.Action("Cambiar", "Home")"><i class="fa fa-pen"></i></a>
+                        <td>
+                            <a href="@Url.Action("Editar", "Usuario")">Editar Datos</a>
+                        </td>
+                    </tr>
                 
-            
-        </div>
+            </tbody>
+        </table>
+
     </div>
 </div>
-
-}
